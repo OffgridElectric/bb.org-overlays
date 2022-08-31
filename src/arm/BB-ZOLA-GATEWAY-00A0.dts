@@ -300,3 +300,20 @@
 	status = "disabled";
 };
 
+/* PWM outputs for Zola Power On LED (J16-Pins 4, 6,8) */
+&ocp {
+	/* See BeagleBone_Black.dts */
+	P9_29_pinmux { status = "disabled"; }; /* gpio3_15, 0x0994 */
+	P9_30_pinmux { status = "disabled"; }; /* gpio3_16, 0x0998 */
+	P9_28_pinmux { status = "disabled"; }; /* gpio3_17, 0x099c */
+};
+
+&am33x_pinmux {
+	led_pins: led_pins {
+		pinctrl-single,pins = <
+			AM33XX_IOPAD(0x0994, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE1)
+			AM33XX_IOPAD(0x0998, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE1)
+			AM33XX_IOPAD(0x099c, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE1)
+		>;
+	};
+};
