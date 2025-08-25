@@ -106,9 +106,7 @@
 	};
 };
 &dcan1 {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&dcan1_pins>;
+	status = "disabled";
 };
 
 /* MMC1(SDCard) CD gpio0_6 -> gpio3_14 */
