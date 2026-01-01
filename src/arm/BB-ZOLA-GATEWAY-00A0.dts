@@ -109,21 +109,22 @@
 	status = "disabled";
 };
 
-/* MMC1(SDCard) CD gpio0_6 -> gpio3_14 */
-&ocp {
-	P9_31_pinmux { status = "disabled"; };	/* P9_31: mcasp0_aclkx.gpio3_14 */
+
+/* ===== MMC1 (SDCard) – V2 Card Detect ===== */
+&am33xx_pinmux {
+	mmc1_cd_pins: pinmux_mmc1_cd_pins {
+		pinctrl-single,pins = <
+			AM33XX_IOPAD(0x08EC, PIN_INPUT_PULLUP | MUX_MODE7)
+		>;
+	};
 };
-&mmc1_pins {
-	pinctrl-single,pins = <
-		AM33XX_IOPAD(0x0990, PIN_OUTPUT | INPUT_EN | MUX_MODE7)  /* mcasp0_aclkx.gpio3_14 */
-		AM33XX_PADCONF(AM335X_PIN_MMC0_DAT0, PIN_INPUT_PULLUP, MUX_MODE0)
-		AM33XX_PADCONF(AM335X_PIN_MMC0_DAT1, PIN_INPUT_PULLUP, MUX_MODE0)
-		AM33XX_PADCONF(AM335X_PIN_MMC0_DAT2, PIN_INPUT_PULLUP, MUX_MODE0)
-		AM33XX_PADCONF(AM335X_PIN_MMC0_DAT3, PIN_INPUT_PULLUP, MUX_MODE0)
-		AM33XX_PADCONF(AM335X_PIN_MMC0_CMD, PIN_INPUT_PULLUP, MUX_MODE0)
-		AM33XX_PADCONF(AM335X_PIN_MMC0_CLK, PIN_INPUT_PULLUP, MUX_MODE0)
-	>;
+
+&mmc1 {
+	cd-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&mmc1_cd_pins>;
 };
+
 
 /* RS485_1(UART1) on J6 */
 &ocp {
