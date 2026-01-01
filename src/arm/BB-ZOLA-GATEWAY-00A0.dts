@@ -129,6 +129,7 @@
 	P8_40_pinmux { status = "disabled"; }; /* UART1_RTSN / GPIO0_13 */
 	P8_38_pinmux { status = "disabled"; }; /* LCD_DATA7 / GPIO2_13 */
 	P9_91_pinmux { status = "disabled"; }; /* MCASP0_AXR1 / GPIO3_20 */
+	P8_30_pinmux { status = "disabled"; };
 };
 
 
