@@ -77,9 +77,7 @@
 	fragment@1003 {
 		target = <&dcan0>;
 		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&bb_dcan0_pins>;
+			status = "disabled";
 		};
 	};
 
