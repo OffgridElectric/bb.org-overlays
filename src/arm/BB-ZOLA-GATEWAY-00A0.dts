@@ -126,6 +126,14 @@
 };
 
 
+&ocp {
+	P8_39_pinmux { status = "disabled"; }; /* LCD_DATA6 / GPIO2_12 */
+	P8_40_pinmux { status = "disabled"; }; /* UART1_RTSN / GPIO0_13 */
+	P8_38_pinmux { status = "disabled"; }; /* LCD_DATA7 / GPIO2_13 */
+	P9_91_pinmux { status = "disabled"; }; /* MCASP0_AXR1 / GPIO3_20 */
+};
+
+
 /* RS485_1(UART1) on J6 */
 &ocp {
 	P8_28_pinmux { status = "disabled"; };	/* P8_28: lcd_pclk.gpio2_24 */
